@@ -8,6 +8,11 @@ class ProductManager {
   }
 
   addProduct({ title, description, price, thumbnail, code, stock }) {
+    if (!title || !description || !price || !thumbnail || !code || !stock) {
+      console.log(`Some data is missing, please check your input`);
+      return;
+    }
+
     let findedCode = this.products.find((element) => element.code === code);
 
     if (!findedCode) {
