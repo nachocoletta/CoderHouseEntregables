@@ -8,10 +8,6 @@ const path = "./products.json";
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 
-app.listen(PORT, () => {
-  console.log(`Servidor escuchando en el puerto ${PORT}`);
-});
-
 app.get("/products", async (req, res) => {
   const { limit } = req.query;
 
@@ -29,9 +25,9 @@ app.get("/products/:idProduct", async (req, res) => {
 
   const products = await getJSONFromFile(path);
 
-  const product = products.filter((p) => p.id === parseInt(idProduct));
+  const product = products.find((p) => p.id === parseInt(idProduct));
 
-  if (product.length) {
+  if (product) {
     return res.json(product);
   } else {
     return res.send(`Product with id ${idProduct} doesn't exists.`);
@@ -54,3 +50,7 @@ const initiateFile = async () => {
 };
 
 initiateFile();
+
+app.listen(PORT, () => {
+  console.log(`Servidor escuchando en el puerto ${PORT}`);
+});
