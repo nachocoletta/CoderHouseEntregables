@@ -12,12 +12,10 @@ app.get("/products", async (req, res) => {
   const { limit } = req.query;
 
   const products = await getJSONFromFile(path);
-  if (!limit) {
-    return res.status(200).send(products);
-  }
 
-  let limitProducts = products.slice(0, limit);
-  res.json(limitProducts);
+  return !limit
+    ? res.status(200).send(products)
+    : res.json(products.slice(0, parseInt(limit)));
 });
 
 app.get("/products/:idProduct", async (req, res) => {
@@ -27,11 +25,9 @@ app.get("/products/:idProduct", async (req, res) => {
 
   const product = products.find((p) => p.id === parseInt(idProduct));
 
-  if (product) {
-    return res.json(product);
-  } else {
-    return res.send(`Product with id ${idProduct} doesn't exists.`);
-  }
+  return product
+    ? res.json(product)
+    : res.send(`Product with id ${idProduct} doesn't exists.`);
 });
 
 const productManager = new ProductManager(path);
