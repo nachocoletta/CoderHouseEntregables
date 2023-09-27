@@ -45,7 +45,11 @@ const initiateFile = async () => {
   }
 };
 
-initiateFile();
+const productsLength = async () => getJSONFromFile(path);
+
+productsLength().then((data) => {
+  if (!data.length) initiateFile();
+});
 
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);
