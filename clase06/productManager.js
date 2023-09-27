@@ -151,13 +151,6 @@ const saveJSONToFile = async (path, data) => {
 (async function (run) {
   if (!run) return;
 
-  const productManager = new ProductManager("./products.json");
-  await productManager.deleteProduct(2);
-})(false);
-(async function (run) {
-  //   console.log("hola");
-  if (!run) return;
-
   // Se creará una instancia de la clase “ProductManager”
   const productManager = new ProductManager("./products.json");
 
@@ -242,4 +235,6 @@ const saveJSONToFile = async (path, data) => {
     await productManager.deleteProduct(1);
     await productManager.deleteProduct(225);
   }, 7000);
-})(true);
+})(false);
+
+module.exports = { ProductManager, getJSONFromFile, saveJSONToFile };

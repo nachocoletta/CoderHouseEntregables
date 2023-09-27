@@ -1,29 +1,20 @@
 [
 	{
 		"id": 2,
-		"title": "producto de prueba 3",
-		"description": "Descripcion de felipe",
+		"title": "producto con id 4",
+		"description": "Descripcion de producto2",
 		"price": 33,
 		"thumbnail": "Imagen no disponible",
-		"code": "felipe2",
+		"code": "fff232",
 		"stock": 25
 	},
 	{
 		"id": 3,
 		"title": "producto prueba",
 		"description": "Este es un producto de prueba",
-		"price": 200,
-		"thumbnail": "Sin imagen",
-		"code": "abc123",
-		"stock": 25
-	},
-	{
-		"id": 4,
-		"title": "producto de prueba 3",
-		"description": "Descripcion de producto2",
-		"price": 33,
+		"price": 350,
 		"thumbnail": "Imagen no disponible",
-		"code": "cde321",
+		"code": "abc1234",
 		"stock": 25
 	}
 ]
